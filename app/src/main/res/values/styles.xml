@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/main_black</item>
+        <item name="colorPrimaryDark">@color/main_grey</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BubbleText">
+        <item name="android:textColor">@color/button_text</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
+    <style name="BubbleText.VerySmall">
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="BubbleText.Small">
+        <item name="android:textSize">17dp</item>
+    </style>
+
+    <style name="BubbleText.Medium">
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="BubbleText.Big">
+        <item name="android:textSize">25dp</item>
+    </style>
+</resources>

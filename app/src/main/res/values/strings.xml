@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">RSSReader</string>
+    <string name="informations_source">Choose your information portal</string>
+    <string name="confirm_button">Confirm</string>
+    <string name="add_source">Add source</string>
+    <string name="bbc_news">BBC News</string>
+    <string name="business_insider">Business insider</string>
+    <string name="cnbc">CNBC</string>
+    <string name="cnn">CNN</string>
+    <string name="financial_times">Financial Times</string>
+    <string name="reuters">Reuters</string>
+    <string name="the_economist">The Economist</string>
+    <string name="time">Time</string>
+    <string name="newsweek">Newsweek</string>
+    <string name="t3n">t3n</string>
+    <string name="sky_news">Sky news</string>
+    <string name="focus">Focus</string>
+
+</resources>
