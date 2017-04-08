@@ -1,15 +1,11 @@
 package com.example.gosia.rssreader;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Created by Gosia on 25.03.2017.
