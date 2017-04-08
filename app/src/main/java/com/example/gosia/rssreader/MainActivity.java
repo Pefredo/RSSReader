@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void selectSource(View view){
+    public void selectSource(View view) {
         TextView textView = (TextView) view;
         selectedPortal = textView.getText().toString();
         selectedPortal = selectedPortal.replaceAll("\\s", "_").toLowerCase();
@@ -59,8 +59,7 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getApplicationContext().getSharedPreferences(USER_PORTALS, 0);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-
-        if(sharedPreferences.contains(selectedPortal)) {
+        if (sharedPreferences.contains(selectedPortal)) {
             editor.remove(selectedPortal);
             editor.commit();
         } else {

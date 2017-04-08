@@ -31,10 +31,10 @@ public class NewsDownloader {
     private List<Article> aricles;
 
     public List<Article> downloadNews(String newsPortal){
-        NewsDownloaderAsyncTask aqd = new NewsDownloaderAsyncTask();
+        NewsDownloaderAsyncTask newsDownloaderAsyncTask = new NewsDownloaderAsyncTask();
         List<Article> list = null;
         try {
-            list = aqd.execute(newsPortal).get();
+            list = newsDownloaderAsyncTask.execute(newsPortal).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -76,8 +76,8 @@ public class NewsDownloader {
 
 
         @Override
-        protected void onPostExecute(List<Article> fuck) {
-            super.onPostExecute(fuck);
+        protected void onPostExecute(List<Article> result) {
+            super.onPostExecute(result);
         }
         private Retrofit getRetrofit() {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();

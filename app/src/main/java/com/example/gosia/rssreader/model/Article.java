@@ -1,9 +1,5 @@
 package com.example.gosia.rssreader.model;
 
-/**
- * Created by archi on 08/04/2017.
- */
-
 public class Article {
     String author;
     String title;
@@ -35,4 +31,5 @@ public class Article {
     public String getPublishedAt() {
         return publishedAt;
     }
+
 }

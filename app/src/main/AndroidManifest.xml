@@ -23,6 +23,9 @@
 
         <activity android:name=".NewsInformations">
         </activity>
+
+        <activity android:name=".NewsDetails">
+        </activity>
     </application>
 
 </manifest>
