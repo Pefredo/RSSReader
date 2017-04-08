@@ -43,6 +43,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void goToNewsInformations(String pString){
+        if(!pString.isEmpty()) {
+            Intent intent = new Intent(this, NewsInformations.class);
+            intent.putExtra("EXTRA_MESSAGE", pString);
+            startActivity(intent);
+        }
+    }
+
     public void selectSource(View view){
         TextView textView = (TextView) view;
         selectedPortal = textView.getText().toString();
@@ -52,12 +60,14 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
 
-        if(sharedPreferences.contains(selectedPortal)){
+        if(sharedPreferences.contains(selectedPortal)) {
             editor.remove(selectedPortal);
             editor.commit();
-        }else{
+        } else {
+            //editor.putString(selectedPortal, selectedPortal);
             editor.putString(selectedPortal, selectedPortal);
             editor.commit();
         }
+        goToNewsInformations(selectedPortal);
     }
 }

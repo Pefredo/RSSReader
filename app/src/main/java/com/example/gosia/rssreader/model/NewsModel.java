@@ -11,7 +11,7 @@ public class NewsModel {
     private String status;
     private String source;
     private String sortBy;
-    private List<Articles> articles;
+    private List<Article> articles;
 
     public String getStatus() {
         return status;
@@ -25,47 +25,7 @@ public class NewsModel {
         return sortBy;
     }
 
-    public List<Articles> getArticles() {
+    public List<Article> getArticles() {
         return articles;
     }
-
-    public class Articles {
-        List<Article> article;
-
-        public List<Article> getArticle() {
-            return article;
-        }
-    }
-        public class Article {
-            String author;
-            String title;
-            String description;
-            String url;
-            String urlToImage;
-            String publishedAt;
-
-            public String getAuthor() {
-                return author;
-            }
-
-            public String getTitle() {
-                return title;
-            }
-
-            public String getDescription() {
-                return description;
-            }
-
-            public String getUrl() {
-                return url;
-            }
-
-            public String getUrlToImage() {
-                return urlToImage;
-            }
-
-            public String getPublishedAt() {
-                return publishedAt;
-            }
-        }
-    }
+}

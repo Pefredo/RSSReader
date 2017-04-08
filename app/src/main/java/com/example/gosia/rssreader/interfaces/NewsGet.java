@@ -25,4 +25,11 @@ public interface NewsGet {
             //@Query("sortBy") String sortBy,
             @Query("apiKey") String token
     );
+
+    @GET("v1/articles?")
+    Call<NewsModel> getNewsFromOneSource(
+            @Query("source") String source,
+            //@Query("sortBy") String sortBy,
+            @Query("apiKey") String token
+    );
 }
