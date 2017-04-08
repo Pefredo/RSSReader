@@ -1,15 +1,15 @@
 package com.example.gosia.rssreader;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.example.gosia.rssreader.interfaces.NewsGet;
+import com.example.gosia.rssreader.model.Article;
 import com.example.gosia.rssreader.model.NewsModel;
 import com.orhanobut.logger.Logger;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import okhttp3.OkHttpClient;
@@ -26,56 +26,58 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class NewsDownloader {
 
     private static final String API_KEY = "a5ca94964c0e4a90a59c4a4cd8a6b11e";
-    private List<NewsModel.Articles>aricles;
+    private static final String TAG = "NewsDownloader";
 
-    public Map<String, String> downloadNews(Map<String, String> newsPortal){
+    private List<Article> aricles;
+
+    public List<Article> downloadNews(String newsPortal){
         NewsDownloaderAsyncTask aqd = new NewsDownloaderAsyncTask();
-        Map<String,String> map = null;
+        List<Article> list = null;
         try {
-            map = aqd.execute(newsPortal).get();
+            list = aqd.execute(newsPortal).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-        return map;
+        return list;
     }
 
 
-    private class NewsDownloaderAsyncTask extends AsyncTask<Map<String, String>, Void, Map<String,String>> {
+    private class NewsDownloaderAsyncTask extends AsyncTask<String, Void, List<Article>> {
 
         @Override
-        protected Map<String,String> doInBackground(Map<String, String>...params) {
+        protected List<Article> doInBackground(String... params) {
+            Log.d(TAG,"doInBackground: " + params[0]);
             NewsModel newsModel;
             Response<NewsModel> newsModelResponse;
-            Map<String,String> map  = new HashMap();
+            List<Article> result = null;
 
             Retrofit retrofit = getRetrofit();
 
             NewsGet service = retrofit.create(NewsGet.class);
-            Call<NewsModel> call = service.getCityNewsFromSource(params[0], API_KEY);
+            Call<NewsModel> call = service.getNewsFromOneSource(params[0], API_KEY);
 
             try {
                 newsModelResponse = call.execute();
                 newsModel = newsModelResponse.body();
 
                 if(newsModel != null) {
-
-                }
-                else{
+                     result= newsModel.getArticles();
+                } else{
                     Logger.e("Something is null here!");
                 }
             } catch (IOException e) {
                 e.printStackTrace();
 
             }
-            return map;
+            return result;
         }
 
 
         @Override
-        protected void onPostExecute(Map<String, String> stringStringMap) {
-            super.onPostExecute(stringStringMap);
+        protected void onPostExecute(List<Article> fuck) {
+            super.onPostExecute(fuck);
         }
         private Retrofit getRetrofit() {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
