@@ -63,9 +63,9 @@ public class NewsDownloader {
                 newsModel = newsModelResponse.body();
 
                 if(newsModel != null) {
-                     result= newsModel.getArticles();
+                     result = newsModel.getArticles();
                 } else{
-                    Logger.e("Something is null here!");
+                    Logger.e("News model is null here!");
                 }
             } catch (IOException e) {
                 e.printStackTrace();

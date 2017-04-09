@@ -10,13 +10,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.example.gosia.rssreader.model.Article;
-import com.orhanobut.logger.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.attr.description;
 
 /**
  * Created by Gosia on 25.03.2017.
@@ -37,6 +35,7 @@ public class NewsInformations extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.list);
         Intent intent = getIntent();
         stuffToShow = intent.getStringExtra("EXTRA_MESSAGE");
+
         if(stuffToShow != null && !stuffToShow.isEmpty()) {
             loadNews();
         }

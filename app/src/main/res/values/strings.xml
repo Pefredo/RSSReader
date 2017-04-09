@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RSSReader</string>
+    <string name="app_name">RSS News</string>
     <string name="informations_source">Choose your information portal</string>
     <string name="confirm_button">Confirm</string>
     <string name="add_source">Add source</string>

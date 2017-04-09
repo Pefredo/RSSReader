@@ -52,14 +52,18 @@ public class NewsDetails extends AppCompatActivity{
             content.setText(contentFromIntent);
 
             String imageFromIntent = intent.getStringExtra("urlPicture");
-            Uri uri = Uri.parse(imageFromIntent);
-            image.setImageURI(uri);
+            if(imageFromIntent != null) {
+                Uri uri = Uri.parse(imageFromIntent);
+                image.setImageURI(uri);
+            }
 
             String authorFromIntent = intent.getStringExtra("author");
             author.setText(authorFromIntent);
 
             String dateFromIntent = intent.getStringExtra("date");
-            dateFromIntent = dateFromIntent.replaceAll("T", " ").replaceAll("Z", "");
+            if(dateFromIntent!=null) {
+                dateFromIntent = dateFromIntent.replaceAll("T", " ").replaceAll("Z", "");
+            }
 
             String urlFromIntent = intent.getStringExtra("articleUrl");
             url.setText(urlFromIntent);

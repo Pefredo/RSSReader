@@ -18,6 +18,8 @@
         android:id="@+id/titleDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:breakStrategy="high_quality"
+        android:gravity="center_horizontal"
         style="@style/ArticleTitle"
         android:text="Title"/>
 
